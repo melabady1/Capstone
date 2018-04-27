@@ -5,8 +5,23 @@ library(SnowballC)
 library(data.table)
 
 #setwd
-dict <- readRDS("./dict")
+dict <- readRDS("./Shiny App/dict")
+gramsList <- list(
+  grams2 = readRDS("./Shiny App/merged2_comp"),
+  grams3 = readRDS("./Shiny App/merged3_comp"),
+  grams4 = readRDS("./Shiny App/merged4_comp"),
+  grams5 = readRDS("./Shiny App/merged5_comp")
+)
 
+library(tm)
+library(tidytext)
+library(quanteda)
+library(SnowballC)
+library(data.table)
+
+
+dict <- readRDS("./dict")
+#grams1 = readRDS("./merged1_all")
 gramsList <- list(
   grams2 = readRDS("./merged2_comp"),
   grams3 = readRDS("./merged3_comp"),
@@ -101,5 +116,6 @@ getExpectedWord <- function(x, retmax = 15) {
   
   out
 }
+
 
 getExpectedWord("happy new", 12)
